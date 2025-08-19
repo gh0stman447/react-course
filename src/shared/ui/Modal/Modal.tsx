@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useRef } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
-import { Portal } from '../Portal/Portal';
 
 interface ModalProps {
   className?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
 }
@@ -14,10 +14,9 @@ interface ModalProps {
 export const Modal = (props: ModalProps) => {
   const { className, isOpen, onClose, children } = props;
 
-  const [isClosing, setIsClosing] = React.useState(false);
-  const timeRef = useRef<ReturnType<typeof setTimeout>>();
+  const [isClosing, setIsClosing] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { theme } = useTheme();
-
   const ANIMATION_DELAY = 300;
 
   const mods: Record<string, boolean> = {
@@ -29,14 +28,14 @@ export const Modal = (props: ModalProps) => {
   const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
-      onClose();
-      timeRef.current = setTimeout(() => {
+      timerRef.current = setTimeout(() => {
         onClose();
         setIsClosing(false);
       }, ANIMATION_DELAY);
     }
   }, [onClose]);
 
+  // Новые ссылки!!!
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -52,7 +51,7 @@ export const Modal = (props: ModalProps) => {
     }
 
     return () => {
-      clearInterval(timeRef.current);
+      clearTimeout(timerRef.current);
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onKeyDown]);
