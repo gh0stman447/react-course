@@ -13,7 +13,8 @@ export function componentRender(component: ReactNode, options: componentRenderOp
 
   return render(
     <MemoryRouter initialEntries={[route]}>
-      <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>,
+      <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
+      ,
     </MemoryRouter>,
   );
 }
