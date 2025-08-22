@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from 'path';
+import path from "path";
 
 export default {
   // A set of global variables that need to be available in all test environments
@@ -11,20 +11,20 @@ export default {
     __IS_DEV__: true,
   },
   clearMocks: true,
-  testEnvironment: 'jsdom',
-  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
-  moduleDirectories: ['node_modules'],
-  modulePaths: ['<rootDir>src'],
+  testEnvironment: "jsdom",
+  coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
+  moduleDirectories: ["node_modules"],
+  modulePaths: ["<rootDir>src"],
   testMatch: [
     // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
   ],
-  rootDir: '../../',
-  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+  rootDir: "../../",
+  setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
   moduleNameMapper: {
-    '\\.s?css$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    "\\.s?css$": "identity-obj-proxy",
+    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
   },
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

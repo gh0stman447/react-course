@@ -4,9 +4,9 @@
   "semi": true,
   "useTabs": false,
   "bracketSpacing": true,
-  "singleQuote": true,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
   "trailingComma": "all",
-  "jsxSingleQuote": true,
   "jsxBracketSameLine": false,
   "importOrderSortSpecifiers": true,
   "importOrderSeparation": true
