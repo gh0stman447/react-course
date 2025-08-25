@@ -23,7 +23,8 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json}' --config ./.prettierrc",
     "stylelint": "npx stylelint '**/*.{css,scss}'",
-    "stylelint:fix": "npx stylelint '**/*.{css,scss}' --fix"
+    "stylelint:fix": "npx stylelint '**/*.{css,scss}' --fix",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",

@@ -1,7 +1,7 @@
 import { combineReducers, configureStore, ReducersMapObject } from "@reduxjs/toolkit";
 import { counterReducer } from "entities/Counter";
-import { StateSchema } from "./StateSchema";
 import { userReducer } from "entities/User/model/slice/userSlice";
+import { StateSchema } from "./StateSchema";
 
 export function createReduxStore(initialState?: StateSchema) {
   const rootReduser: ReducersMapObject<StateSchema> = {

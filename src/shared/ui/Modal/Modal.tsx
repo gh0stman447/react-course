@@ -1,5 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  ReactNode, useCallback, useEffect, useRef, useState,
+} from "react";
 import { Portal } from "shared/ui/Portal/Portal";
 import { useTheme } from "app/providers/ThemeProvider";
 import cls from "./Modal.module.scss";
@@ -13,7 +15,9 @@ interface ModalProps {
 }
 
 export const Modal = (props: ModalProps) => {
-  const { className, isOpen, onClose, lazy, children } = props;
+  const {
+    className, isOpen, onClose, lazy, children,
+  } = props;
 
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
