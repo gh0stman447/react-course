@@ -28,7 +28,7 @@ server.use((req, res, next) => {
 server.use(jsonServer.defaults());
 server.use(router);
 
-// Эндпоинт для логина
+// Эндпоинт для логина  
 server.post("/login", (req, res) => {
   const { username, password } = req.body;
   const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, "db.json")), "utf-8");

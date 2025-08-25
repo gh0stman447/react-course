@@ -15,8 +15,8 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
   rules: {
-    "react/jsx-indent": [2, 2],
-    "jsx-quotes": ["error", "double"],
+    // "react/jsx-indent": [2, 2],
+    // "jsx-quotes": ["error", "double"],
     quotes: ["error", "double"],
     "react/jsx-indent-props": [2, 2],
     indent: [2, 2],
