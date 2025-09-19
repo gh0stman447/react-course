@@ -32,7 +32,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 
   const onChangeUsername = useCallback(
     (value: string) => {
-      dispatch(loginActions.setUserName(value));
+      dispatch(loginActions.setUsername(value));
     },
     [dispatch],
   );
