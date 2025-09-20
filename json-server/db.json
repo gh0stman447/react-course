@@ -33,5 +33,15 @@
       "username": "admin",
       "password": "123"
     }
-  ]
+  ],
+  "profile": {
+    "first": "Oleg",
+    "lastname": "Malygin",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://avatars.mds.yandex.net/i?id=20b24c0d7bed9a65b072b183ceb70781_l-4958973-images-thumbs&n=13"
+  }
 }
