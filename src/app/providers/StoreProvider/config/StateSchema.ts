@@ -1,6 +1,4 @@
-import {
-  AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
-} from "@reduxjs/toolkit";
+import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 import { CounterSchema } from "entities/Counter";
 import { ProfileSchema } from "entities/Profile";
@@ -38,4 +36,5 @@ export interface ThunkExtraArgs {
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArgs;
+  state: StateSchema;
 }
