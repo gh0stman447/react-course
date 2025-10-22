@@ -20,7 +20,9 @@ const options = [
 ];
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
-  const { className, value, readonly, onChange } = props;
+  const {
+    className, value, readonly, onChange,
+  } = props;
   const { t } = useTranslation();
 
   const onChangeHandler = useCallback(

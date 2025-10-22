@@ -18,16 +18,17 @@ interface SelectProps {
 }
 
 export const Select = memo((props: SelectProps) => {
-  const { className, label, options, value, readonly, onChange } = props;
+  const {
+    className, label, options, value, readonly, onChange,
+  } = props;
   const { t } = useTranslation();
 
   const optionsList = useMemo(
-    () =>
-      options?.map((opt) => (
-        <option className={cls.option} value={opt.value} key={opt.value}>
-          {opt.content}
-        </option>
-      )),
+    () => options?.map((opt) => (
+      <option className={cls.option} value={opt.value} key={opt.value}>
+        {opt.content}
+      </option>
+    )),
     [options],
   );
 

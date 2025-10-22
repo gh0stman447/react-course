@@ -9,13 +9,12 @@ const AppRouter = () => {
   const isAuth = useSelector(getUserAuthData);
 
   const routes = useMemo(
-    () =>
-      Object.values(routeConfig).filter((route) => {
-        if (route.authOnly && !isAuth) {
-          return false;
-        }
-        return true;
-      }),
+    () => Object.values(routeConfig).filter((route) => {
+      if (route.authOnly && !isAuth) {
+        return false;
+      }
+      return true;
+    }),
     [isAuth],
   );
 
@@ -25,11 +24,11 @@ const AppRouter = () => {
         <Route
           key={path}
           path={path}
-          element={
+          element={(
             <Suspense fallback={<PageLoader />}>
               <div className="page-wrapper">{element}</div>
             </Suspense>
-          }
+          )}
         />
       ))}
     </Routes>

@@ -12,7 +12,9 @@ interface InputProps extends HTMLInputProps {
   readonly?: boolean;
 }
 export const Input = memo((props: InputProps) => {
-  const { className, value, onChange, type = "text", placeholder, autoFocus, readonly, ...otherProps } = props;
+  const {
+    className, value, onChange, type = "text", placeholder, autoFocus, readonly, ...otherProps
+  } = props;
 
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = React.useState(false);

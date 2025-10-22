@@ -10,7 +10,9 @@ interface AvatarProps {
 }
 
 export const Avatar = (props: AvatarProps) => {
-  const { className, src, size, alt } = props;
+  const {
+    className, src, size, alt,
+  } = props;
 
   const mods: Mods = {};
 
