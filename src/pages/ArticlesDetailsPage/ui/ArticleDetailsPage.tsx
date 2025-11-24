@@ -1,6 +1,8 @@
 import { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
+import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { ArticleDetails } from "entities/Article";
 import cls from "./ArticleDetailsPage.module.scss";
 
 interface ArticlesDetailsPageProps {
@@ -9,9 +11,18 @@ interface ArticlesDetailsPageProps {
 
 const ArticleDetailsPage = (props: ArticlesDetailsPageProps) => {
   const { className } = props;
-  const { t } = useTranslation("articles");
+  const { t } = useTranslation("article-details");
+  const { id } = useParams<{ id: string }>();
 
-  return <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>component</div>;
+  if (!id) {
+    return <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>{t("Статья не найдена")}</div>;
+  }
+
+  return (
+    <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+      <ArticleDetails id={id} />
+    </div>
+  );
 };
 
 export default memo(ArticleDetailsPage);
