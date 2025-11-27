@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import { DynamicModuleLoader, ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback } from "react";
 import { fetchArticleById } from "entities/Article/model/services/fetchArticleById/fetchArticleById";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
@@ -12,6 +11,7 @@ import { Text, TextAlign, TextSize } from "shared/ui/Text/Text";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import EyeIcon from "shared/assets/icons/eye.svg";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import CalendarIcon from "shared/assets/icons/calendar.svg";
 import { Icon } from "shared/ui/Icon/Icon";
 import {
@@ -34,12 +34,12 @@ interface ArticleDetailsProps {
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const { className, id } = props;
   const { t } = useTranslation("article-details");
+
   const redusers: ReducerList = {
     articleDetails: articleDetailsReducer,
   };
 
   const dispatch = useAppDispatch();
-  // const isLoading = useSelector(getArticleDetailsIsLoading);
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
   const article = useSelector(getArticleDetailsData);
@@ -57,11 +57,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     }
   }, []);
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
+  });
 
   let content;
 
