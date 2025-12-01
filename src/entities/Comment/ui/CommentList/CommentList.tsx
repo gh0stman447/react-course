@@ -21,7 +21,7 @@ export const CommentList = memo((props: CommentListProps) => {
       <div className={classNames(cls.CommentList, {}, [className])}>
         {Array.from({ length: 3 }).map((_, i) => (
           // eslint-disable-next-line react/no-array-index-key
-          <CommentCard key={i} comment={{} as Comment} isLoading />
+          <CommentCard key={i} isLoading />
         ))}
       </div>
     );

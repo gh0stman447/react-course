@@ -13,13 +13,13 @@ export function createReduxStore(
   asyncReducers?: ReducersMapObject<StateSchema>,
   navigate?: (to: To, options?: NavigateOptions) => void,
 ) {
-  const rootReduser: ReducersMapObject<StateSchema> = {
+  const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
   };
 
-  const reducerManager = createReducerManager(rootReduser);
+  const reducerManager = createReducerManager(rootReducer);
 
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>, AnyAction>,

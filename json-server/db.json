@@ -20,7 +20,11 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT", "SCIENCE", "ECONOMICS"],
+      "type": [
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -116,19 +120,81 @@
       "id": "5",
       "text": "a comment about post 5",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qwe",
+      "id": "D3OxHPI"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "12312312312123",
+      "id": "ZMsmDZ0"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "12313123123",
+      "id": "KkLAK1V"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "12312123123131231231231232132131321",
+      "id": "Jp_6vvY"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "1231398123г81023г012321912901",
+      "id": "GiGBGZV"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "kek",
+      "id": "WFf2j_k"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qwdqwd",
+      "id": "G24QFd-"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qwewqe",
+      "id": "B50pj71"
     }
   ],
-  "profile": {
-    "first": "Олег",
-    "lastname": "Malygin!",
-    "age": 23,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow ",
-    "username": "admin!",
-    "avatar": "https://t3.ftcdn.net/jpg/05/17/16/90/360_F_517169024_GfRSDlJPnQUydJBhRHTnOSOqgnTHHKYl.jpg  "
-  },
+  "profile": [
+    {
+      "id": "1",
+      "first": "Олег",
+      "lastname": "Malygin!",
+      "age": 23,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow ",
+      "username": "admin!",
+      "avatar": "https://t3.ftcdn.net/jpg/05/17/16/90/360_F_517169024_GfRSDlJPnQUydJBhRHTnOSOqgnTHHKYl.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Тест",
+      "lastname": "Тестович",
+      "age": 30,
+      "currency": "USD",
+      "country": "USA",
+      "city": "America",
+      "username": "User",
+      "avatar": "https://xakep.ru/wp-content/uploads/2015/08/41885761_xl.jpg"
+    }
+  ],
   "users": [
     {
       "id": "1",
