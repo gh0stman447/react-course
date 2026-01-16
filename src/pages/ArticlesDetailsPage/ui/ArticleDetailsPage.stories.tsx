@@ -23,6 +23,7 @@ const article: Article = {
   subtitle: "subtitle of first article",
   img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
   views: 1022,
+  user: { id: "1", username: "UserName" },
   createdAt: "26.02.2022",
   type: [ArticleType.IT, ArticleType.SCIENCE, ArticleType.ECONOMICS],
   blocks: [
