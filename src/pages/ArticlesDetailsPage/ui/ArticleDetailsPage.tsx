@@ -12,6 +12,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { DynamicModuleLoader, ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { Page } from "shared/ui/Page/Page";
 import { getArticleCommentsError, getArticleCommentsIsLoading } from "../model/selectors/comments";
 import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
@@ -68,7 +69,7 @@ const ArticleDetailsPage = (props: ArticlesDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
         <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
           {t("Назад к списку")}
         </Button>
@@ -76,7 +77,7 @@ const ArticleDetailsPage = (props: ArticlesDetailsPageProps) => {
         <Text title={t("Комментарии")} className={cls.commentsTitle} />
         <AddCommentForm className={cls.commentForm} onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={isLoading} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
