@@ -10,7 +10,6 @@ import { AddCommentFormSchema } from "features/AddCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
 import { ArticlesDetailsCommentsSchema } from "pages/ArticlesDetailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
-import { NavigateOptions, To } from "react-router-dom";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -26,12 +25,14 @@ export interface StateSchema {
 }
 
 export type StateSchemaKeys = keyof StateSchema;
+export type MountedReducers = OptionalRecord<StateSchemaKeys, boolean>;
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
   add: (key: StateSchemaKeys, reducer: Reducer) => void;
   remove: (key: StateSchemaKeys) => void;
+  getMountedReducers: () => MountedReducers;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
@@ -40,7 +41,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArgs {
   api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

@@ -10,17 +10,16 @@ import { DynamicModuleLoader, ReducerList } from "shared/lib/components/DynamicM
 import { articlePageReducer, articlesPageActions, getArticles } from "../model/articlesPageSlice";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { fetchArciticlesList } from "../services/fetchArciticlesList";
 import { useSelector } from "react-redux";
 import {
   getArticlesPageError,
-  getArticlesPageHasMore,
+  getArticlesPageInited,
   getArticlesPageIsLoading,
-  getArticlesPageNum,
   getArticlesPageView,
 } from "../selectors/articlesPageSelectors";
 import { Page } from "shared/ui/Page/Page";
 import { fetchNextArticlesPage } from "../services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../services/initArticlesPage/initArticlesPage";
 
 interface ArticlesPageProps {
   className?: string;
@@ -118,6 +117,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
   const error = useSelector(getArticlesPageError);
+  const inited = useSelector(getArticlesPageInited);
 
   const dispatch = useAppDispatch();
 
@@ -126,8 +126,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArciticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   });
 
   const onChangeView = (newView: ArticleView) => {
@@ -135,7 +134,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   };
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
         <ArticleViewSelector onViewClick={onChangeView} view={view} />
         <ArticleList isLoading={isLoading} articles={articles} view={view} />
